@@ -65,13 +65,12 @@ class Dog
   end 
   
 def self.new_from_db(row)
-  new_dog = self.new  # self.new is the same as running Song.new
-  new_dog.id = row[0]
-  new_dog.name =  row[1]
-  new_dog.breed = row[2]
-  new_dog = Dog.new(id: result[0], name: result[1], breed: result[2])
-  new_dog  # return the newly created instance
-end 
+    id = row[0]
+    name = row[1]
+    breed = row[2]
+    new_dog = self.new(id: id, name: name, breed: breed)
+    new_dog
+  end
   
   def self.find_by_name(name)
     sql = "SELECT * FROM dogs WHERE name = ?"
